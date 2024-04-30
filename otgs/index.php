@@ -422,9 +422,9 @@ mysqli_close($conn);
                     7500₹
                     <span>/ per person</span>
                   </p>
-
-                  <button class="btn btn-secondary">Book Now</button>
-
+                  <button class="btn btn-secondary" id="booknow1">Book Now</button>
+                  
+                  
                 </div>
 
               </div>
@@ -497,7 +497,8 @@ mysqli_close($conn);
                     <span>/ per person</span>
                   </p>
 
-                  <button class="btn btn-secondary">Book Now</button>
+                  <button class="btn btn-secondary" id="booknow2">Book Now</button>
+
 
                 </div>
 
@@ -570,7 +571,9 @@ mysqli_close($conn);
                     <span>/ per person</span>
                   </p>
 
-                  <button class="btn btn-secondary">Book Now</button>
+                  <button class="btn btn-secondary" id="booknow3">Book Now</button>
+                  
+
 
                 </div>
 
@@ -578,13 +581,35 @@ mysqli_close($conn);
             </li>
 
           </ul>
+          
 
           <button class="btn btn-primary">View All Packages</button>
+          
 
         </div>
       </section>
+      <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get all Book Now buttons by their unique IDs
+      const bookNowBtn1 = document.getElementById('booknow1');
+      const bookNowBtn2 = document.getElementById('booknow2');
+      const bookNowBtn3 = document.getElementById('booknow3');
 
+      // Add click event listeners to each button
+      bookNowBtn1.addEventListener('click', function() {
+        window.location.href = 'paymentgateway.html';
+      });
 
+      bookNowBtn2.addEventListener('click', function() {
+        window.location.href = 'paymentgateway.html';
+      });
+
+      bookNowBtn3.addEventListener('click', function() {
+        window.location.href = 'paymentgateway.html';
+      });
+    });
+  </script>
+          
 
 
 
