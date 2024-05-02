@@ -331,7 +331,7 @@ mysqli_close($conn);
 
           </ul>
 
-          <button class="btn btn-primary">Visit More Places</button>
+          <button class="btn btn-primary" style="background-color: orange;""><a href="visitmoreplaces.html">Visit More Places</a></button>
 
         </div>
       </section>
@@ -583,7 +583,7 @@ mysqli_close($conn);
           </ul>
           
 
-          <button class="btn btn-primary">View All Packages</button>
+          <button class="btn btn-primary" style="background-color:orange;"><a href="viewallpackages.html">View All Packages</a></button>
           
 
         </div>
