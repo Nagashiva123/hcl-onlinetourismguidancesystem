@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway Integration</title>
+  
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            background-image: url('image.avif');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            border-radius: 8px;
+            padding: 30px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff7f00; /* Orange color for heading */
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #ffcc00; /* Yellow button background */
+            color: #fff; /* White button text */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #ffa500; /* Darker shade of orange on hover */
+        }
+
+        /* Hide all payment options by default */
+        .paymentOption {
+            display: none;
+        }
+
+        /* Show the selected payment option */
+        .paymentOption.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Payment Gateway Integration</h1>
+  
+        <form id="paymentForm" onsubmit="return handlePayment()">
+            <div>
+                <label for="paymentMethod">Select Payment Method:</label>
+                <select id="paymentMethod" required>
+                    <option value="card">Credit/Debit Card</option>
+                    <option value="gpay">Google Pay</option>
+                    <option value="phonepe">PhonePe</option>
+                    <option value="paytm">Paytm</option>
+                    <option value="upi">UPI</option>
+                </select>
+            </div>
+            <br>
+            <div id="cardDetails" class="paymentOption">
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" placeholder="Enter your card number" required>
+      
+                <label for="expiryDate">Expiry Date:</label>
+                <input type="text" id="expiryDate" placeholder="MM/YY" required>
+      
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" placeholder="Enter CVV" required>
+            </div>
+    
+            <div id="gpayDetails" class="paymentOption">
+                <label for="gpayNumber">GPay Phone Number:</label>
+                <input type="text" id="gpayNumber" placeholder="Enter your GPay phone number" required>
+            </div>
+    
+            <div id="phonepeDetails" class="paymentOption">
+                <label for="phonepeNumber">PhonePe Phone Number:</label>
+                <input type="text" id="phonepeNumber" placeholder="Enter your PhonePe phone number" required>
+            </div>
+    
+            <div id="paytmDetails" class="paymentOption">
+                <label for="paytmNumber">Paytm Phone Number:</label>
+                <input type="text" id="paytmNumber" placeholder="Enter your Paytm phone number" required>
+            </div>
+    
+            <div id="upiDetails" class="paymentOption">
+                <label for="upiId">UPI ID:</label>
+                <input type="text" id="upiId" placeholder="Enter your UPI ID" required>
+            </div>
+
+            <button type="submit">Pay Now</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const paymentMethodSelect = document.getElementById('paymentMethod');
+            const paymentOptions = document.querySelectorAll('.paymentOption');
+    
+            paymentMethodSelect.addEventListener('change', function() {
+                const selectedOption = paymentMethodSelect.value;
+        
+                // Hide all payment options first
+                paymentOptions.forEach(option => option.classList.remove('show'));
+    
+                // Show the selected payment option
+                document.getElementById(`${selectedOption}Details`).classList.add('show');
+            });
+    
+            // Initially hide all payment options except the default one (credit/debit card)
+            document.getElementById('cardDetails').classList.add('show');
+        });
+    
+        function handlePayment() {
+            const paymentMethod = document.getElementById('paymentMethod').value;
+    
+            if (paymentMethod === 'gpay') {
+                const gpayNumber = document.getElementById('gpayNumber').value;
+                // Redirect to Google Pay or handle GPay payment process
+                console.log(`Processing Google Pay with phone number: ${gpayNumber}`);
+                return false; // Prevent form submission for GPay (you can redirect or handle payment here)
+            }
+    
+            // Handle other payment methods here
+    
+            return true; // Allow form submission for other methods
+        }
+    </script>
+</body>
+</html>
