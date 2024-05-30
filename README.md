@@ -5,4 +5,4 @@ password for the admin page
 username:admin 
 password:admin123
 
-*********MY WEBSITE WAS ACCESS AT  "http://otgs.free.nf/" *************
+*********YOU CAN ACCESS MY WEBPAGE AT  "http://otgs.free.nf/" *************
